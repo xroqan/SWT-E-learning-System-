@@ -58,6 +58,12 @@ public class Dateiordner extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Hochladen");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Hochladen obj = new Hochladen();
+				obj.setVisible(true); 
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton_1.setBounds(10, 217, 118, 36);
 		contentPane.add(btnNewButton_1);

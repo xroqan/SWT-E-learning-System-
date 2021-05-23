@@ -5,13 +5,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import java.awt.Font;
+import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTree;
 
-public class ListOfFile extends JFrame {
+public class Hochladen extends JFrame {
 
 	private JPanel contentPane;
 
@@ -22,7 +22,7 @@ public class ListOfFile extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ListOfFile frame = new ListOfFile();
+					Hochladen frame = new Hochladen();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +34,7 @@ public class ListOfFile extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ListOfFile() {
+	public Hochladen() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -42,22 +42,32 @@ public class ListOfFile extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Datei Liste");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel.setBounds(41, 10, 275, 25);
+		JLabel lblNewLabel = new JLabel("M\u00F6chten Sie diese Dateien hochladen?");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel.setBounds(22, 10, 389, 103);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("zur\u00FCck");
+		JButton btnNewButton = new JButton("Ja");
 		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListOfFile obj = new ListOfFile();
+				obj.setVisible(true);
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnNewButton.setBounds(92, 108, 69, 52);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNein = new JButton("Nein");
+		btnNein.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Dateiordner obj = new Dateiordner();
 				obj.setVisible(true);
-				
 			}
-			
-			
 		});
-		btnNewButton.setBounds(321, 16, 85, 21);
-		contentPane.add(btnNewButton);
+		btnNein.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnNein.setBounds(232, 108, 69, 52);
+		contentPane.add(btnNein);
 	}
+
 }
